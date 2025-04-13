@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Match Predictor</title>
+    <script>
+        async function getPrediction() {
+            const season = document.getElementById("season").value;
+            const team1 = document.getElementById("team1").value;
+            const team2 = document.getElementById("team2").value;
+
+            const response = await fetch("http://127.0.0.1:8000/predict", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ season, team1, team2 })
+            });
+
+            const data = await response.json();
+            document.getElementById("result").innerText = data.prediction || data.error;
+        }
+    </script>
+</head>
+<body>
+    <h2>Sports Match Predictor</h2>
+    <label>Enter Season (e.g., IPL-2019):</label>
+    <input type="text" id="season"><br><br>
+
+    <label>Enter First Team:</label>
+    <input type="text" id="team1"><br><br>
+
+    <label>Enter Second Team:</label>
+    <input type="text" id="team2"><br><br>
+
+    <button onclick="getPrediction()">Predict Winner</button>
+    
+    <h3 id="result"></h3>
+</body>
+</html>
