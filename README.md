@@ -50,3 +50,9 @@ python app.py
 
 Open your browser and go to:
 http://127.0.0.1:5000
+
+ 👨‍💻 Author
+
+Aarya More  
+Final Year Student,Data Science  
+📫 Reach me on [LinkedIn](www.linkedin.com/in/aarya-more-4b9282259)
